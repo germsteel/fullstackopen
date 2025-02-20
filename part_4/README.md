@@ -10,30 +10,30 @@ graph TB
         C --> D[控制器层]
         D --> E[数据模型层]
         E --> F[MongoDB数据库]
-      
+    
         subgraph Authentication[认证系统]
             G[登录控制器]
             H[JWT处理]
             I[密码加密]
         end
-      
+    
         subgraph Testing[测试系统]
             J[API测试]
             K[单元测试]
             L[测试工具]
         end
-      
+    
         subgraph Controllers[控制器]
             D1[博客控制器]
             D2[用户控制器]
             D3[登录控制器]
         end
-      
+    
         subgraph Models[数据模型]
             E1[博客模型]
             E2[用户模型]
         end
-      
+    
         subgraph Middleware[中间件]
             B1[Token提取器]
             B2[请求日志]
