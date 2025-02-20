@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # anekdootit项目 - 开发环境
+  anekdootit-dev:
+    build: 
+      context: ./part_1/anekdootit
+      target: development
+    volumes:
+      - ./part_1/anekdootit:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: npm start
+
+  # anekdootit项目 - 生产环境
+  anekdootit-prod:
+    build:
+      context: ./part_1/anekdootit
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+
+  # 这里可以添加其他项目的服务配置
+  # project2-dev:
+  #   build:
+  #     context: ./path/to/project2
+  #     target: development
+  #   ...
+
+  # project2-prod:
+  #   build:
+  #     context: ./path/to/project2
+  #     target: production
+  #   ... 
